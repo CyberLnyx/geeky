@@ -12,7 +12,7 @@ const supportedFileFormats = [
     supportedFormats: [
       "PDF files (.pdf)",
       "PowerPoints (.ppt, .pptx)",
-      "Word Document (.docx)",
+      "Word Document (.docx, .doc, application/msword)",
     ],
   },
   {
@@ -22,9 +22,9 @@ const supportedFileFormats = [
   {
     category: "Past Question",
     supportedFormats: [
-      "Image files (.jpeg, .jpg, .png)",
-      "Word Document (.docx)",
       "PDF files (.pdf)",
+      "Image files (.jpeg, .jpg, .png)",
+      "Word Document (.docx, .doc, application/msword)",
     ],
   },
   {
@@ -33,7 +33,7 @@ const supportedFileFormats = [
       "PDF files (.pdf)",
       "PowerPoints (.ppt, .pptx)",
       "Image files (.jpeg, .jpg, .png)",
-      "Word Document (.docx)",
+      "Word Document (.docx, .doc, application/msword)",
     ],
   },
 ];

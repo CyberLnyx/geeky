@@ -138,11 +138,11 @@ export const Home = () => {
 
   const acceptedFileTypes = useMemo(() => {
     if (values.category === "Lecture Material")
-      return ".pdf, .ppt, .pptx, .docx";
+      return ".pdf, .ppt, .pptx, .docx, .doc, application/msword";
     if (values.category === "Textbook") return ".pdf";
     if (values.category === "Past Question")
       return ".jpeg, .jpg, .png, .pdf, .docx";
-    return ".pdf, .ppt, .pptx, .jpeg, .jpg, .png, .docx";
+    return ".pdf, .ppt, .pptx, .jpeg, .jpg, .png, .docx, .doc, application/msword";
   }, [values.category]);
 
   useEffect(() => {
