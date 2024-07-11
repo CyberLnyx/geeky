@@ -15,6 +15,7 @@ import { Spinner, Loader } from "../components/progress";
 import FormFeedback from "@/components/forms/FormFeedback";
 import techuLogo from "@/assets/images/techu_logo.png";
 import AboutProjectModal from "@/components/AboutProjectModal";
+import SupportedFileModal from "@/components/SupportFileModal";
 
 const studentLevels = [
   "100 LEVEL",
@@ -38,6 +39,14 @@ export const Home = () => {
   const documentInputRef = useRef<any>(null);
   const [documents, setDocuments] = useState<any>(null);
   const [aboutProjectOpen, setAboutProjectOpen] = useState<boolean>(false);
+  const [supportFileModalOpen, setSupportedFileModalOpen] =
+    useState<boolean>(false);
+
+  const showAboutProject = () => setAboutProjectOpen(true);
+  const hideAboutProject = () => setAboutProjectOpen(false);
+
+  const showSupportedFileFormatsModal = () => setSupportedFileModalOpen(true);
+  const hideSupportedFileFormatsModal = () => setSupportedFileModalOpen(false);
 
   // Check student status
   const uploadDocumentSchema = yup.object({
@@ -65,8 +74,6 @@ export const Home = () => {
   });
 
   const defaultValues = {
-    // email: "",
-    // name: "",
     level: "100 LEVEL",
     courseCode: "",
     isGeneralCourse: false,
@@ -80,6 +87,24 @@ export const Home = () => {
     initialValues: defaultValues,
     validationSchema: uploadDocumentSchema,
     onSubmit: (values: any) => {
+      // Check material type;
+      const allPassed = documents.every((doc: File) => {
+        const nameSplit = doc.name.split(".");
+        const ext = nameSplit[nameSplit.length - 1];
+        return acceptedFileTypes.includes(ext);
+      });
+
+      if (!allPassed) {
+        showInfoNotification(
+          "Some material(s) you've selected does not fit this category"
+        );
+        let tmo = setTimeout(() => {
+          showSupportedFileFormatsModal();
+          clearTimeout(tmo);
+        }, 1000);
+        return;
+      }
+
       const formData = new FormData();
       Object.keys(values).map((key: string) => {
         if (key === "documents") {
@@ -115,8 +140,9 @@ export const Home = () => {
     if (values.category === "Lecture Material")
       return ".pdf, .ppt, .pptx, .docx";
     if (values.category === "Textbook") return ".pdf";
-    if (values.category === "Past Question") return ".jpeg, .jpg, .png, .pdf";
-    return ".pdf, .ppt, .pptx, .jpeg, .jpg, .png";
+    if (values.category === "Past Question")
+      return ".jpeg, .jpg, .png, .pdf, .docx";
+    return ".pdf, .ppt, .pptx, .jpeg, .jpg, .png, .docx";
   }, [values.category]);
 
   useEffect(() => {
@@ -158,9 +184,6 @@ export const Home = () => {
     }
   };
 
-  const showAboutProject = () => setAboutProjectOpen(true);
-  const hideAboutProject = () => setAboutProjectOpen(false);
-
   return (
     <div className="w-dvw h-dvh overflow-auto">
       <div className="w-full h-full flex justify-center items-start">
@@ -182,7 +205,14 @@ export const Home = () => {
             Click to learn more about the project
             <i className="fi fi-br-info flex"></i>
           </button>
-          {uploadingDocument && <Loader text="Uploading..." />}
+          {uploadingDocument && (
+            <Loader
+              text="Uploading..."
+              subText={
+                "Upload time depends on the size of the material(s) and your internet speed"
+              }
+            />
+          )}
           <form
             className="mt-8 auth-form"
             onSubmit={(e) => {
@@ -256,6 +286,16 @@ export const Home = () => {
               defaultValue={values.category}
               className="neue-regular text-gray-300"
             />
+
+            {/* Supported file formats */}
+            <button
+              className="neue-regular text-xs p-2 transparent-white rounded-md text-gray-300 flex justify-between items-center w-full gap-1 text-left mt-5 mb-1"
+              onClick={showSupportedFileFormatsModal}
+              type="button"
+            >
+              See supported File Formats
+              <i className="fi fi-br-angle-circle-right flex"></i>
+            </button>
             <FormInput
               label="Document"
               name="documents"
@@ -308,8 +348,14 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* About project model */}
+      {/* About project modal */}
       <AboutProjectModal isOpen={aboutProjectOpen} onClose={hideAboutProject} />
+
+      {/* Supported file modal */}
+      <SupportedFileModal
+        isOpen={supportFileModalOpen}
+        onClose={hideSupportedFileFormatsModal}
+      />
     </div>
   );
 };
