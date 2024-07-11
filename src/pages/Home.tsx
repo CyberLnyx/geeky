@@ -182,7 +182,7 @@ export const Home = () => {
             Click to learn more about the project
             <i className="fi fi-br-info flex"></i>
           </button>
-          {uploadingDocument && <Loader />}
+          {uploadingDocument && <Loader text="Uploading..." />}
           <form
             className="mt-8 auth-form"
             onSubmit={(e) => {
@@ -195,7 +195,7 @@ export const Home = () => {
               Please select the appropriate level for easy cataloging
             </FormFeedback>
             <FormInput
-              label="Level"
+              label="Resource Level"
               name="level"
               onBlur={handleBlur}
               onChange={handleChange}
