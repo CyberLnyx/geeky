@@ -175,11 +175,13 @@ export const Home = () => {
     let files = e.target.files as File[];
     let file = files[0];
     if (files.length !== 0) {
-      const validFiles = files.filter((file) => {
+      const validFiles = Array.from(files).filter((file) => {
         const nameSplit = file.name.split(".");
         const ext = nameSplit[nameSplit.length - 1];
         return acceptedFileTypes.includes(ext);
       });
+
+      console.log(validFiles);
 
       if (validFiles.length !== files.length) {
         if (files.length === 1) {
