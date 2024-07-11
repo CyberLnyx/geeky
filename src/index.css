@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Neue-Light";
+  src: url("./assets/fonts/NeueMachina-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue-Regular";
+  src: url("./assets/fonts/NeueMachina-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue-UltraBold";
+  src: url("./assets/fonts/NeueMachina-Light.otf") format("opentype");
+}
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --grayWhite: #f1f1f1;
+  --tw-gradient-stops: rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0);
+  --base-color: #fe6500;
+  --transparent-white: #ffffff14;
+  --feedback-color: #e22808;
+  --success: #3cd188;
+  --secondary: #ff7f5d;
+  --warning: #efae4e;
+  --base-primary: #687cfe;
+  --info: #0ac7fb;
+  --danger: #f7666e;
+  --success-bg: #3cd1882e;
+  --secondary-bg: #ff7f5d1a;
+  --warning-bg: #efae4e2e;
+  --base-primary-bg: #687cfe1a;
+  --info-bg: #0ac7fb2e;
+  --danger-bg: #f7666e1a;
+  --base-red: #d03539;
+  --base-green: #0a8758;
+  --base-yellow: #faa954;
+  --gray-bg: #374151;
+  --transparent-gray: #374151c2;
+  --black-background: #131313;
+  --card-bg: #1b1b1b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* color: var(--white); */
+  font-family: "DM Sans", sans-serif;
+}
+
+body,
+html,
+#root {
+  background: var(--black);
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.gray-white-color {
+  color: var(--grayWhite) !important;
+}
+
+.neue-ultrabold {
+  font-family: "Neue-Ultrabold", Arial, sans-serif;
+}
+
+.neue-regular {
+  font-family: "Neue-Regular", Arial, sans-serif;
+}
+
+.neue-light {
+  font-family: "Neue-Light", Arial, sans-serif;
+}
+
+.\-maa\-translateY\-\[150px\] {
+  transform: translateY(-150px);
+}
+
+.Typewriter {
+  display: inline-block;
+  color: inherit;
+}
+
+.Typewriter > * {
+  color: inherit;
+}
+
+.infinite-translate {
+  animation: infiniteTranslate 10s linear 0s infinite normal;
+}
+
+@keyframes infiniteTranslate {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+.features-container:hover .feature-content-container > div {
+  transform: translateY(0);
+}
+
+.fit-container {
+  max-width: 928px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 91.666667%;
+}
+
+.more-project:hover i {
+  transform: rotate(0deg);
+}
+
+.fade-in {
+  animation: fadeIn 1.4s ease 2s 1 normal forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.opacityToggler {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* styles.css */
+.custom-grid-md-2 {
+  @apply grid-cols-1 md:grid-cols-2 gap-6 md:gap-5;
+}
+
+.custom-grid-md-3 {
+  @apply grid-cols-1 md:grid-cols-3 gap-6 md:gap-5;
+}
+
+.primary {
+  color: var(--base-primary);
+}
+
+.primary-bg {
+  background-color: var(--base-primary-bg);
+}
+
+.success {
+  color: var(--success);
+}
+
+.success-bg {
+  background-color: var(--success-bg);
+}
+
+.info {
+  color: var(--info);
+}
+
+.info-bg {
+  background-color: var(--info-bg);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+
+.secondary-bg {
+  background-color: var(--secondary-bg);
+}
+
+.warning {
+  color: var(--warning);
+}
+
+.warning-bg {
+  background-color: var(--warning-bg);
+}
+
+.danger {
+  color: var(--danger);
+}
+
+.danger-bg {
+  background-color: var(--danger-bg);
+}
+
+.transparent-white {
+  background-color: var(--transparent-white);
+}
+
+.MuiPickersPopper-root {
+  z-index: 100000005 !important;
+}
+
+.MuiFormControl-root,
+.MuiTextField-root {
+  width: 100% !important;
+}
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root,
+.MuiInputBase-input,
+.MuiOutlinedInput-input {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
+  font-family: "Neue-Light", Arial, sans-serif !important;
+  width: 100% !important;
+}
+
+.MuiButtonBase-root:not([role="gridcell"]),
+.MuiIconButton-root:not([role="gridcell"]) {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
+  font-family: "Neue-Light", Arial, sans-serif !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: lightgray !important;
+}
+
+.MuiInputBase-input,
+.MuiOutlinedInput-input {
+  font-family: "Neue-Light", Arial, sans-serif !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  padding-left: 0.75rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+}
+
+.MuiInputBase-input::placeholder,
+.MuiOutlinedInput-input::placeholder {
+  font-family: "Neue-Light", Arial, sans-serif !important;
+}
+
+label {
+  font-family: "Neue-Ultrabold", Arial, sans-serif;
+}
+
+.gray-bg {
+  background-color: var(--gray-bg);
+}
+
+.card {
+  background-color: var(--card-bg);
+}
+
+.gray-text {
+  color: #9b9b9b;
+}
+
+.transparent-gray {
+  color: var(--transparent-gray);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  appearance: none;
+  width: 6px;
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  position: absolute;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  width: 6px;
+  background-color: var(--base-yellow);
+  border-radius: 1rem;
+}
