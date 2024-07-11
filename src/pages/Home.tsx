@@ -172,15 +172,42 @@ export const Home = () => {
 
   // File Change Handler
   const handleFileChange = async (e: any) => {
-    let files = e.target.files;
+    let files = e.target.files as File[];
     let file = files[0];
-    let value = "";
-    if (file) {
-      setDocuments(Array.from(files));
-      validation.setFieldValue(
-        "documents",
-        files.length === 1 ? file.name : `${files.length} files chosen`
-      );
+    if (files.length !== 0) {
+      const validFiles = files.filter((file) => {
+        const nameSplit = file.name.split(".");
+        const ext = nameSplit[nameSplit.length - 1];
+        return acceptedFileTypes.includes(ext);
+      });
+
+      if (validFiles.length !== files.length) {
+        if (files.length === 1) {
+          showInfoNotification("Invalid file format.");
+          let tmo = setTimeout(() => {
+            showSupportedFileFormatsModal();
+            clearTimeout(tmo);
+          }, 1000);
+          return tmo;
+        } else if (validFiles.length > 0) {
+          showInfoNotification("Some file did not match the expected format.");
+        } else if (validFiles.length === 0) {
+          showInfoNotification("Unsupported file formats");
+          let tmo = setTimeout(() => {
+            showSupportedFileFormatsModal();
+            clearTimeout(tmo);
+          }, 1000);
+          return tmo;
+        }
+      }
+
+      if (validFiles.length > 0) {
+        setDocuments(Array.from(files));
+        validation.setFieldValue(
+          "documents",
+          files.length === 1 ? file.name : `${files.length} files chosen`
+        );
+      }
     }
   };
 
