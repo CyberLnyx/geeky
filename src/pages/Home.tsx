@@ -238,7 +238,7 @@ export const Home = () => {
                 onChange={handleChange}
                 type="text"
                 value={values.programme}
-                placeholder="example: Mechatronics Engineering"
+                placeholder="e.g: Mechatronics Engineering"
                 validation={validation}
                 className="neue-regular text-gray-300"
               />
