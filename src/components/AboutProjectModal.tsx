@@ -15,7 +15,7 @@ const AboutProjectModal = ({ onClose, isOpen }: AboutProjectModalProps) => {
       isOpen={isOpen}
       showBackdropElement={true}
       hideCloseModalButton={true}
-      inlineModalContentStyle={{ maxWidth: "400px", maxHeight: "270px" }}
+      inlineModalContentStyle={{ maxWidth: "400px", maxHeight: "400px" }}
     >
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl text-white neue-regular font-bold">
