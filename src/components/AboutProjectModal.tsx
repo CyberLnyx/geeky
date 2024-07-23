@@ -34,14 +34,14 @@ const AboutProjectModal = ({ onClose, isOpen }: AboutProjectModalProps) => {
           <p className="text-gray-300 neue-regular text-sm">
             Hello there! 👋🏻👋. <br />
             This project was designed with the intention to provide both present
-            and incoming students a central repository for accessing{" "}
+            and incoming students with a central repository for accessing{" "}
             <b className="neue-regular">lecture materials</b>,{" "}
             <b className="neue-regular">textbooks</b>,{" "}
             <b className="neue-regular">past questions</b>,{" "}
             <b className="neue-regular">
-              assignements(question and/or solution)
-            </b>{" "}
-            etc.
+              assignments (question and/or solution)
+            </b>
+            , and more.
           </p>
           <h3 className="text-white neue-regular text-base mt-2">
             Development Cycles/Phases
@@ -72,9 +72,22 @@ const AboutProjectModal = ({ onClose, isOpen }: AboutProjectModalProps) => {
             <b className="neue-regular">textbooks</b>,{" "}
             <b className="neue-regular">past questions</b>,{" "}
             <b className="neue-regular">
-              assignements(question and/or solution)
-            </b>{" "}
-            etc.
+              assignments (question and/or solution)
+            </b>
+            , and more.
+          </p>
+          <h3 className="text-white neue-regular text-base mt-2">
+            Important Notice
+          </h3>
+
+          <p className="text-gray-300 neue-regular text-sm">
+            It is important to declare that the word{" "}
+            <b className="neue-regular">"project"</b> as used in this write-up
+            does not interpret to{" "}
+            <b className="neue-regular">"final year project"</b> and as such is
+            not a school assigned "project" of any entity. Rather, it a
+            conceived idea of an entity that has the potential to help a number
+            of individuals on this campus.{" "}
           </p>
         </div>
       </DivWithoutScrollBar>
