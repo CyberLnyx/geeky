@@ -81,13 +81,13 @@ const AboutProjectModal = ({ onClose, isOpen }: AboutProjectModalProps) => {
           </h3>
 
           <p className="text-gray-300 neue-regular text-sm">
-            It is important to declare that the word{" "}
-            <b className="neue-regular">"project"</b> as used in this write-up
-            does not interpret to{" "}
-            <b className="neue-regular">"final year project"</b> and as such is
-            not a school assigned "project" of any entity. Rather, it a
-            conceived idea of an entity that has the potential to help a number
-            of individuals on this campus.{" "}
+            It is important to clarify that the use of the word{" "}
+            <b className="neue-regular">"project"</b> in this piece does not
+            imply this exercise is a{" "}
+            <b className="neue-regular">"final year project"</b> and as such, it
+            is not a school-assigned "project/assignment" of any entity. Rather,
+            it a conceived idea of an entity that has the potential to help a
+            number of individuals on this campus.{" "}
           </p>
         </div>
       </DivWithoutScrollBar>
