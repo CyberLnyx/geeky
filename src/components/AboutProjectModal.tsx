@@ -85,9 +85,10 @@ const AboutProjectModal = ({ onClose, isOpen }: AboutProjectModalProps) => {
             <b className="neue-regular">"project"</b> in this piece does not
             imply this exercise is a{" "}
             <b className="neue-regular">"final year project"</b> and as such, it
-            is not a school-assigned "project/assignment" of any entity. Rather,
-            it a conceived idea of an entity that has the potential to help a
-            number of individuals on this campus.{" "}
+            is not a school-assigned{" "}
+            <b className="neue-regular">"project/assignment"</b> of any entity.
+            Rather, it a conceived idea of an entity that has the potential to
+            help a number of individuals on this campus.{" "}
           </p>
         </div>
       </DivWithoutScrollBar>
